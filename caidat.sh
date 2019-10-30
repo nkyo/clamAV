@@ -159,3 +159,5 @@ if [ "$MALWARE" -ne "0" ];then
 fi 
 exit 0
 END
+exit
+;;
