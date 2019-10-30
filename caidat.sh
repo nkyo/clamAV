@@ -45,11 +45,11 @@ systemctl enable clamd@scan
 ######cai dat ssmtp & mailx
 yum install ssmtp mailx
 ##########cau hinh ssmtp
-echo -n "Nhap server SMTP (Vi du: smtp.gmail.com:465) :  " sv_smtp
+echo -n "Nhap server SMTP (Vi du: smtp.gmail.com:465) :  "
 read sv_smtp
-echo -n "Nhap user SMTP(Vi du: admin@matbao.com): " smtp_user
+echo -n "Nhap user SMTP(Vi du: admin@matbao.com): "
 read smtp_user
-echo -n "Nhap Mat khau smtp: " smtp_pass
+echo -n "Nhap Mat khau smtp: "
 read smtp_pass
 
 clear
