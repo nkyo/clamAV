@@ -26,20 +26,25 @@ echo "IP: $svip"
 ##########update OS
 yum update -y
 yum upgrade -y
+yum -y install epel-release
+yum clean all
 #############cai dat clamav
 
-
-
-######cai dat ssmtp & mailx
-
-
+yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd cla
+setsebool -P antivirus_can_scan_system 1
+setsebool -P clamd_use_jit 1
 #####cau hinh clamAV
 
-
+sed -i -e "s/^Example/#Example/" /etc/clamd.d/scan.conf
+sed -i -e "s/^#LocalSocket/LocalSocket/" /etc/clamd.d/scan.conf
+sed -i -e "s/^Example/#Example/" /etc/freshclam.conf
+echo "Dang Cap Nhat CSDL Virus"
+freshclam
+systemctl start clamd@scan
+systemctl enable clamd@scan
+######cai dat ssmtp & mailx
+yum install ssmtp mailx
 ##########cau hinh ssmtp
-
-
-
 echo -n "Nhap server ket noi SMTP:PORT Vi du: smtp.gmail.com:465 ) " 
 read sv_smtp
 echo -n "Nhap user SMTP: Vi du admin@matbao.com" 
@@ -90,7 +95,16 @@ sleep 3
 ############# chay cau hinh file ssmtp ###################
 
 rm -rf ssmtp conf
-    cat > "/etc/nginx/conf.d/sim.$svdomain.conf" <<END
+    cat > "/etc/ssmtp/ssmtp.conf" <<END
+root=$smtp_user
+mailhub=$sv_smtp
+AuthUser=$smtp_user
+AuthPass=$smtp_pass
+UseTLS=YES
+AuthMethod=LOGIN
+RewriteDomain=$sv_smtp
+Hostname=$sv_smtp
+FromLineOverride=yes #enables to use mail -r option
 ###noi dung cua ssmtp
 
 END
