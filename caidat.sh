@@ -47,9 +47,9 @@ yum install ssmtp mailx
 ##########cau hinh ssmtp
 echo -n "Nhap server ket noi SMTP:PORT Vi du: smtp.gmail.com:465 ) " 
 read sv_smtp
-echo -n "Nhap user SMTP: Vi du admin@matbao.com" 
+echo -n "Nhap user SMTP(Vi du: admin@matbao.com):  :" 
 read smtp_user
-echo -n "Nhap Mat khau smtp" 
+echo -n "Nhap Mat khau smtp: " 
 read smtp_pass
 
 clear
@@ -105,12 +105,9 @@ AuthMethod=LOGIN
 RewriteDomain=$sv_smtp
 Hostname=$sv_smtp
 FromLineOverride=yes #enables to use mail -r option
-###noi dung cua ssmtp
-
 END
 
 ####cau hinh file Quet virus
-rm -f 
 mkdir /var/log/clamav
     cat > "/root/scan_daily.sh" <<END
 #!/bin/bash
@@ -162,5 +159,4 @@ if [ "$MALWARE" -ne "0" ];then
   echo -e "$EMAIL_MSG \n $(cat $FOUNDFILE)"|mail -a "$FOUNDFILE" -s "[CẢNH BÁO NGUY HIỂM]Phát hiện các tập tin có chứa virus trên máy chủ "$SVIP"" -r "$EMAIL_FROM" "$EMAIL_TO";
 fi 
 exit 0
-
 END
