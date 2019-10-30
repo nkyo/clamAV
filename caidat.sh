@@ -45,11 +45,11 @@ systemctl enable clamd@scan
 ######cai dat ssmtp & mailx
 yum install ssmtp mailx
 ##########cau hinh ssmtp
-echo -n "Nhap server ket noi SMTP:PORT Vi du: smtp.gmail.com:465 ) " 
+echo -n "Nhap server SMTP (Vi du: smtp.gmail.com:465) :  " sv_smtp
 read sv_smtp
-echo -n "Nhap user SMTP(Vi du: admin@matbao.com):  :" 
+echo -n "Nhap user SMTP(Vi du: admin@matbao.com): " smtp_user
 read smtp_user
-echo -n "Nhap Mat khau smtp: " 
+echo -n "Nhap Mat khau smtp: " smtp_pass
 read smtp_pass
 
 clear
@@ -66,7 +66,6 @@ case $response in
     [yY][eE][sS]|[yY]) 
 
 read -p "Nhan [Enter] de tiep tuc ..."
-
 
 service sendmail stop
 chkconfig sendmail off
@@ -104,10 +103,10 @@ UseTLS=YES
 AuthMethod=LOGIN
 RewriteDomain=$sv_smtp
 Hostname=$sv_smtp
-FromLineOverride=yes #enables to use mail -r option
+FromLineOverride=yes
 END
 
-####cau hinh file Quet virus
+##cau hinh file Quet virus
 mkdir /var/log/clamav
     cat > "/root/scan_daily.sh" <<END
 #!/bin/bash
