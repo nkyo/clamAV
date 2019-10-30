@@ -16,7 +16,7 @@ https://wiki.matbao.net/kb/huong-dan-xu-ly-ma-doc
 Sau đây là danh sách những tập tin được phát hiện bị nhiễm mã độc trên server "$SVIP" cần Quý khách kiểm tra và khắc phục nhanh chóng:"; 
 EMAIL_FROM="MAILDI";
 EMAIL_TO="MAILDEN";
-DIRTOSCAN="SUATHUMUCSCAN";
+DIRTOSCAN="/SUATHUMUCSCAN";
 
 # Update ClamAV database
 echo "Dang cap nhat CSDL virus...";
