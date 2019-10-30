@@ -22,6 +22,8 @@ echo "Memory: $svram MB"
 echo "Disk: $svhdd"
 echo "IP: $svip"
 
+read -p "Nhan [Enter] de tiep tuc ..."
+
 
 ##########update OS
 yum update -y
