@@ -63,9 +63,6 @@ echo "-------------------------------------------------------------------------"
 echo "SMTP user: $smtp_user"
 echo "SMTP password: $smtp_pass"
 echo "========================================================================="
-read -r -p "Thong Tin Tren La Chinh Xac ? [y/N] " response
-case $response in
-    [yY][eE][sS]|[yY]) 
 
 read -p "Nhan [Enter] de tiep tuc ..."
 
