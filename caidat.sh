@@ -21,6 +21,8 @@ echo "CPU Speed: $cpufreq MHz"
 echo "Memory: $svram MB"
 echo "Disk: $svhdd"
 echo "IP: $svip"
+echo "=========================================================================="
+
 
 read -p "Nhan [Enter] de tiep tuc ..."
 
