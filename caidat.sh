@@ -126,6 +126,15 @@ read SUATHUMUCSCAN
 sed -i -e "s/MAILDI/$smtp_user/" scan.sh
 sed -i -e "s/MAILDEN/$MAILDEN/" scan.sh
 sed -i -e "s/SUATHUMUCSCAN/$SUATHUMUCSCAN/" scan.sh
+
+crontab <<EOF
+2 * * * * /root/scan.sh
+EOF
+
+printf "=========================================================================\n"
+printf "Dang kiem tra he thong gui email\n"
+printf "=========================================================================\n"
+
 echo "Quá trình cài đặt ClamAV đã hoàn tất trên máy chủ $svip " | mail -v -s "[THÔNG BÁO] Cài đặt ClamAV hoàn tất" "$MAILDEN"
 clear
 printf "=========================================================================\n"
