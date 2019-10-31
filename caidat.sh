@@ -96,17 +96,18 @@ sleep 3
 
 rm -rf /etc/ssmtp/ssmtp.conf
     cat > "/etc/ssmtp/ssmtp.conf" <<END
+root=postmaster
 root=$smtp_user
 mailhub=$sv_smtp
 AuthUser=$smtp_user
 AuthPass=$smtp_pass
 UseTLS=YES
 AuthMethod=LOGIN
-RewriteDomain=$sv_smtp
-Hostname=$sv_smtp
+RewriteDomain=$tenmien
+Hostname=clamav
 FromLineOverride=yes
+TLS_CA_File=/etc/pki/tls/certs/ca-bundle.crt
 END
-
 ##cau hinh file Quet virus
 mkdir /var/log/clamav
 cat > "./scan.sh" <<END
