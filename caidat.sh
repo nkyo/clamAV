@@ -135,12 +135,16 @@ printf "========================================================================
 printf "Dang kiem tra he thong gui email\n"
 printf "=========================================================================\n"
 
-echo "Quá trình cài đặt ClamAV đã hoàn tất trên máy chủ $svip " | mail -v -s "[THÔNG BÁO] Cài đặt ClamAV hoàn tất" "$MAILDEN"
+echo "Qua trinh cai dat ClamAV da hoan tat tren may chu $svip " | mail -v -s "[THONG BAO] Cai dat ClamAV hoan tat" "$MAILDEN"
 clear
 printf "=========================================================================\n"
 printf "Cai Dat Hoan Tat\n"
 printf "=========================================================================\n"
 
-
+clear
+clear
+printf "=========================================================================\n"
+printf "Vui long kiem tra email $MAILDEN \n"
+printf "=========================================================================\n"
 exit
 ;;
