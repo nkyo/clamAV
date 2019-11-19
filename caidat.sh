@@ -128,7 +128,7 @@ sed -i -e "s/MAILDEN/$MAILDEN/" scan.sh
 sed -i -e "s/SUATHUMUCSCAN/$SUATHUMUCSCAN/" scan.sh
 
 crontab <<EOF
-2 * * * * /root/scan.sh
+* */6 * * * /root/scan.sh
 EOF
 
 printf "=========================================================================\n"
