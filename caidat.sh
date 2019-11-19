@@ -54,7 +54,7 @@ yum install ssmtp mailx
 
 echo -n "Nhap ten mien (Vi du: matbao.com) :  "
 read tenmien
-echo -n "Nhap server SMTP (Vi du: smtp.gmail.com:465) :  "
+echo -n "Nhap server SMTP:PORT (Vi du: smtp.gmail.com:465) :  "
 read sv_smtp
 echo -n "Nhap user SMTP(Vi du: admin@matbao.com): "
 read smtp_user
@@ -94,7 +94,7 @@ yum -y remove postfix*
 
 clear
 printf "=========================================================================\n"
-printf "Cai Dat Hoan Tat, Vui long nhap cau hinh ket noi SMTP... \n"
+printf "Dang cau hinh cai dat SMTP...\n"
 printf "=========================================================================\n"
 sleep 3
 
